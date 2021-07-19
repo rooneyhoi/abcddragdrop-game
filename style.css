@@ -1,0 +1,113 @@
+* {
+  font-family: Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+  /* max-width: 980px; */
+}
+
+body {
+  align-items: center;
+  background-color: #eee;
+  color: #333;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+}
+
+.box {
+  align-items: center;
+  border: 3px solid #333;
+  border-radius: 0.5rem;
+  cursor: grab;
+  display: flex;
+  font-size: 4rem;
+  font-weight: bold;
+  justify-content: center;
+  margin: 1.25rem;
+  text-align: center;
+  transition: 0.5s;
+  user-select: none;
+  height: 10rem;
+  width: 10rem;
+}
+.box span {
+  pointer-events: none;
+}
+
+/* Change the div box style when drag event start */
+.drag-start {
+  opacity: 0.4;
+  cursor: grabbing;
+}
+
+.box:nth-child(odd).drag-start {
+  transform: rotate(15deg) scale(0.75);
+}
+
+.box:nth-child(even).drag-start {
+  transform: rotate(-15deg) scale(0.75);
+}
+
+/* Drag enter style update */
+.drag-enter {
+  border-style: dashed;
+}
+
+.box:nth-child(odd).drag-enter {
+  transform: rotate(15deg);
+}
+
+.box:nth-child(even).drag-enter {
+  transform: rotate(-15deg);
+}
+
+.message {
+  background: #333;
+  color: #fff;
+  left: 0;
+  line-height: 1.5;
+  min-height: 100vh;
+  padding: 20px;
+  position: absolute;
+  top: 0;
+  transform: translate(-400px);
+  transition: transform 1s ease-in-out;
+  width: 400px;
+}
+
+.message.show {
+  transform: translate(0);
+}
+
+.btn {
+  cursor: pointer;
+  border: 0;
+  padding: 10px 20px;
+  background: #000;
+  color: #fff;
+  border-radius: 5px;
+}
+
+.btn:focus {
+  outline: 0; 
+}
+
+.btn:hover {
+  background: #222;
+}
+
+.btn:active {
+  transform: scale(0.9);
+}
+
+/* Responsive layout support */
+@media (max-width: 600px) {
+  html { 
+    font-size: 14px; 
+  }
+  .box {
+    width: 4rem; 
+    height: 4rem; 
+    font-size: 2rem;
+    margin: 0.5rem;
+  }
+}
